@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --green-dark: #1a5c2a;
+  --green-mid: #2d7a3a;
+  --green-light: #4caf65;
+  --green-pale: #e8f5ec;
+  --gold: #c8900a;
+  --gold-light: #f5c842;
+  --gold-pale: #fff8e1;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: #f0f7f1;
+  min-height: 100vh;
+}
+
+.font-serif {
+  font-family: 'DM Serif Display', serif;
+}
+
+/* Mobile app container */
+.app-container {
+  max-width: 480px;
+  margin: 0 auto;
+  min-height: 100vh;
+  background: #f4faf5;
+  position: relative;
+}
+
+@media (min-width: 768px) {
+  .app-container {
+    min-height: 100vh;
+    box-shadow: 0 0 40px rgba(0,0,0,0.12);
+  }
+}
+
+/* Input styles */
+input[type="text"],
+input[type="number"],
+input[type="date"],
+input[type="email"],
+textarea,
+select {
+  font-family: 'DM Sans', sans-serif;
+}
+
+/* Remove number input arrows */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type=number] { -moz-appearance: textfield; }
+
+/* Smooth scrolling */
+html { scroll-behavior: smooth; }
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #c3dcc8; border-radius: 2px; }
+
+/* Gold shimmer animation for header */
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.gold-shimmer {
+  background: linear-gradient(90deg, #c8900a, #f5c842, #c8900a);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 3s linear infinite;
+}
+
+/* Fade in animation */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in { animation: fadeInUp 0.3s ease forwards; }
+
+/* Profit/Loss colors */
+.text-profit { color: #2d7a3a; }
+.text-loss { color: #c0392b; }
+.bg-profit { background-color: #e8f5ec; }
+.bg-loss { background-color: #fdecea; }
+
+/* Bottom nav safe area */
+.bottom-nav {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+/* Pulse animation for save button */
+@keyframes pulse-green {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(45, 122, 58, 0.4); }
+  50% { box-shadow: 0 0 0 8px rgba(45, 122, 58, 0); }
+}
+
+.btn-pulse {
+  animation: pulse-green 2s ease infinite;
+}
